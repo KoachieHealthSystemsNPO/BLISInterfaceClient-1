@@ -1,0 +1,154 @@
+2019-11-09 06:38:36: SYSMEX XN-350 handler started...
+2019-11-09 06:38:36: Starting Server scoket on port 8080
+2019-11-09 06:38:36: Waiting for Equipment connection...
+2019-11-09 06:38:36: Listening on port 8080...
+2019-11-09 06:40:40: SYSMEX XN-350 handler stopped
+2019-11-09 06:40:40: could not listen on port :8080 socket closed
+2019-11-09 06:40:54: SYSMEX XN-350 handler started...
+2019-11-09 06:40:54: Starting Server scoket on port 8080
+2019-11-09 06:40:54: Waiting for Equipment connection...
+2019-11-09 06:40:54: Listening on port 8080...
+2019-11-09 06:42:26: SYSMEX XN-350 handler stopped
+2019-11-09 06:42:26: could not listen on port :8080 socket closed
+2019-11-09 06:42:37: SYSMEX XN-350 handler started...
+2019-11-09 06:42:37: Starting Server scoket on port 8080
+2019-11-09 06:42:37: Waiting for Equipment connection...
+2019-11-09 06:42:37: Listening on port 8080...
+2019-11-09 06:45:35: SYSMEX XN-350 handler stopped
+2019-11-09 06:45:35: could not listen on port :8080 socket closed
+2019-11-09 06:45:38: SYSMEX XN-350 handler started...
+2019-11-09 06:45:38: Starting Server scoket on port 8080
+2019-11-09 06:45:38: Waiting for Equipment connection...
+2019-11-09 06:45:38: Listening on port 8080...
+2019-11-09 06:48:30: SYSMEX XN-350 handler stopped
+2019-11-09 06:48:30: could not listen on port :8080 socket closed
+2019-11-09 06:52:01: SYSMEX XN-350 handler started...
+2019-11-09 06:52:01: Starting Server scoket on port 8080
+2019-11-09 06:52:01: Waiting for Equipment connection...
+2019-11-09 06:52:01: Listening on port 8080...
+2019-11-09 06:53:18: SYSMEX XN-350 handler stopped
+2019-11-09 06:53:18: could not listen on port :8080 socket closed
+2019-11-09 06:53:36: SYSMEX XN-350 handler started...
+2019-11-09 06:53:36: Starting Server scoket on port 8080
+2019-11-09 06:53:36: Waiting for Equipment connection...
+2019-11-09 06:53:36: Listening on port 8080...
+2019-11-09 06:53:37: SYSMEX XN-350 handler stopped
+2019-11-09 06:53:37: could not listen on port :8080 socket closed
+2019-11-09 06:53:43: SYSMEX XN-350 handler started...
+2019-11-09 06:53:43: Starting Server scoket on port 8080
+2019-11-09 06:53:43: Waiting for Equipment connection...
+2019-11-09 06:53:43: Listening on port 8080...
+2019-11-09 07:02:51: SYSMEX XN-350 handler started...
+2019-11-09 07:02:51: Starting Server scoket on port 8080
+2019-11-09 07:02:51: Waiting for Equipment connection...
+2019-11-09 07:02:51: Listening on port 8080...
+2019-11-09 07:05:41: SYSMEX XN-350 handler stopped
+2019-11-09 07:05:41: could not listen on port :8080 socket closed
+2019-11-09 07:07:32: SYSMEX XN-350 handler started...
+2019-11-09 07:07:32: Starting Server scoket on port 8080
+2019-11-09 07:07:32: Waiting for Equipment connection...
+2019-11-09 07:07:32: Listening on port 8080...
+2019-11-09 07:14:43: SYSMEX XN-350 handler stopped
+2019-11-09 07:14:43: could not listen on port :8080 socket closed
+2019-11-09 07:15:10: SYSMEX XN-350 handler started...
+2019-11-09 07:15:10: Starting Server scoket on port 8080
+2019-11-09 07:15:10: Waiting for Equipment connection...
+2019-11-09 07:15:10: Listening on port 8080...
+2019-11-09 07:15:28: SYSMEX XN-350 is now Connected...
+2019-11-09 07:15:29: Client thread has started
+2019-11-09 07:15:29: Client thread has started
+2019-11-09 07:17:08: Socket closed
+2019-11-09 07:17:08: SYSMEX XN-350 handler stopped
+2019-11-09 07:17:08
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at sun.nio.cs.StreamDecoder.readBytes(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at TCPIP.ClientThread.run(ClientThread.java:152)
+2019-11-09 07:17:08: Socket closed
+2019-11-09 07:17:08: SOcket Closed
+2019-11-09 07:17:15: SYSMEX XN-350 handler started...
+2019-11-09 07:17:15: Starting Server scoket on port 8080
+2019-11-09 07:17:15: Waiting for Equipment connection...
+2019-11-09 07:17:15: Listening on port 8080...
+2019-11-09 07:17:22: SYSMEX XN-350 is now Connected...
+2019-11-09 07:17:22: Client thread has started
+2019-11-09 07:17:22: Client thread has started
+2019-11-09 07:17:30: Connection reset
+2019-11-09 07:17:30
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at sun.nio.cs.StreamDecoder.readBytes(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at TCPIP.ClientThread.run(ClientThread.java:152)
+2019-11-09 07:17:30: Connection reset
+2019-11-09 07:17:30: The socket has been closed at the other end
+2019-11-09 07:17:40: SYSMEX XN-350 handler stopped
+2019-11-09 07:17:41: SYSMEX XN-350 handler started...
+2019-11-09 07:17:41: Starting Server scoket on port 8080
+2019-11-09 07:17:41: Waiting for Equipment connection...
+2019-11-09 07:17:41: Listening on port 8080...
+2019-11-09 07:18:31: SYSMEX XN-350 is now Connected...
+2019-11-09 07:18:31: Client thread has started
+2019-11-09 07:18:31: Client thread has started
+2019-11-09 07:19:11: Connection reset
+2019-11-09 07:19:11
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at sun.nio.cs.StreamDecoder.readBytes(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at TCPIP.ClientThread.run(ClientThread.java:152)
+2019-11-09 07:19:11: Connection reset
+2019-11-09 07:19:11: The socket has been closed at the other end
+2019-11-09 07:19:21: SYSMEX XN-350 handler stopped
+2019-11-09 07:19:22: SYSMEX XN-350 handler started...
+2019-11-09 07:19:22: Starting Server scoket on port 8080
+2019-11-09 07:19:22: Waiting for Equipment connection...
+2019-11-09 07:19:22: Listening on port 8080...
+2019-11-09 07:19:27: SYSMEX XN-350 handler stopped
+2019-11-09 07:19:27: could not listen on port :8080 socket closed
+2019-11-09 07:19:32: SYSMEX XN-350 handler started...
+2019-11-09 07:19:32: Starting Server scoket on port 8080
+2019-11-09 07:19:32: Waiting for Equipment connection...
+2019-11-09 07:19:32: Listening on port 8080...
+2019-11-09 07:20:11: SYSMEX XN-350 is now Connected...
+2019-11-09 07:20:11: Client thread has started
+2019-11-09 07:20:11: Client thread has started
+2019-11-09 07:20:54: Socket closed
+2019-11-09 07:20:54
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at sun.nio.cs.StreamDecoder.readBytes(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	at java.io.InputStreamReader.read(Unknown Source)
+	at java.io.BufferedReader.fill(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at java.io.BufferedReader.readLine(Unknown Source)
+	at TCPIP.ClientThread.run(ClientThread.java:152)
+2019-11-09 07:20:54: SYSMEX XN-350 handler stopped
+2019-11-09 07:20:54: Socket closed
+2019-11-09 07:20:54: SOcket Closed
