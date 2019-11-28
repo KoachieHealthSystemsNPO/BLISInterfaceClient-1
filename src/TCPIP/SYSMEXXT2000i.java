@@ -362,9 +362,9 @@ public class SYSMEXXT2000i extends Thread{
                 if(pidParts.length > 5)
                 {
                     String patientid = pidParts[4];
-                    String SampleID = "";//msgParts[3].split("\\|")[3].split("\\^")[2].trim();
+                    String SampleID = msgParts[3].split("\\|")[3].split("\\^")[2].trim();
                     //SampleID = utilities.getSystemDate("YYYY") + SampleID;
-                    SampleID =  patientid;
+                    //SampleID =  patientid;
                     int mID=0;
                     float value = 0;
                     boolean flag = false;
@@ -511,13 +511,13 @@ public class SYSMEXXT2000i extends Thread{
          {
              testIDs.add(equipmentids[i]+";"+blismeasureids[i]);             
          }
-        
+       
      }
     
     private static String getSpecimenFilter(int whichdata)
     {
         String data = "";
-        xmlparser p = new xmlparser("configs/SYSMEX/SYSMEXXT2000i.xml");
+        xmlparser p = new xmlparser("SYSMEXXN350.xml");
         try {
             data = p.getMicros60Filter(whichdata);           
         } catch (Exception ex) {

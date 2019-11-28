@@ -15,6 +15,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import log.DisplayMessageType;
 import system.settings;
 
 /**
@@ -22,11 +23,13 @@ import system.settings;
  * @author GHSS-BLIS
  */
 public class blis {
-    
+     public static String url = "http://10.33.6.99:4001/";
+     public static String user = "cape_admin";
+     public static String pass = "admin123";
     
     private static String getFormatedDate(String strDate)
     {
-         String date="";
+        String date="";
         date = strDate.substring(0, 4)+"-";
         date = date + strDate.substring(4, 6)+ "-";
         date = date + strDate.substring(6, 8);
@@ -44,8 +47,8 @@ public class blis {
         String data="-1";
         try 
         {  
-                String url = settings.BLIS_URL;
-                url = url + "api/get_test_types.php?username="+URLEncoder.encode(settings.BLIS_USERNAME,"UTF-8") + "&password="+URLEncoder.encode(settings.BLIS_PASSWORD,"UTF-8");           
+               
+                url = url + "api/get_test_types.php?username="+URLEncoder.encode(user,"UTF-8") + "&password="+URLEncoder.encode(pass,"UTF-8");           
                 url = url + "&specimenfilter="+specimenTypeFilter;
                 url = url + "&testfilter="+specimenTestFilter;  
                 url = url + "&day="+DAYS; 
@@ -63,7 +66,8 @@ public class blis {
                          
                       }
                       data = response.toString();
-                                           
+                      
+                      log.AddToDisplay.Display("Connected to elims: get Test data method",DisplayMessageType.INFORMATION);                     
                   } catch(Exception e){ log.logger.Logger(e.getMessage());}
         } catch (MalformedURLException ex) {
             Logger.getLogger(blis.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,8 +84,8 @@ public class blis {
         
         try 
         {  
-                String url = settings.BLIS_URL;
-                url = url + "api/get_specimen.php?username="+settings.BLIS_USERNAME + "&password="+settings.BLIS_PASSWORD;           
+                
+                url = url + "api/get_specimen.php?username="+user + "&password="+pass;           
                 url = url + "&specimen_id="+ URLEncoder.encode(sampleID,"UTF-8") +"&specimenfilter="+specimenTypeFilter;
                 url = url + "&testfilter="+specimenTestFilter;
                 if(sampleID.isEmpty())
@@ -103,6 +107,7 @@ public class blis {
                          
                       }
                       data = response.toString();
+                      log.AddToDisplay.Display("Connected to elims: get Sample Data method",DisplayMessageType.INFORMATION);
                                            
                   } catch(Exception e){ log.logger.Logger(e.getMessage());}
         } catch (MalformedURLException ex) {
@@ -119,10 +124,9 @@ public class blis {
          String data="-1";
         try 
         {  
-                String url = settings.BLIS_URL;
                 url = url + "api/update_result.php?username="+
-                        URLEncoder.encode(settings.BLIS_USERNAME,"UTF-8") + "&password="+
-                        URLEncoder.encode(settings.BLIS_PASSWORD,"UTF-8");           
+                        URLEncoder.encode(user,"UTF-8") + "&password="+
+                        URLEncoder.encode(pass,"UTF-8");           
                 url = url + "&specimen_id="+URLEncoder.encode(specimenID,"UTF-8");
                 url = url + "&measure_id="+measureID;
                 url = url + "&result="+URLEncoder.encode(result,"UTF-8");
@@ -142,6 +146,7 @@ public class blis {
                          
                       }
                       data = response.toString();
+                      log.AddToDisplay.Display("Connected to elims: save Results1 method",DisplayMessageType.INFORMATION);
                                            
                   } catch(Exception e){ log.logger.Logger(e.getMessage());}
         } catch (MalformedURLException ex) {
@@ -159,10 +164,9 @@ public class blis {
         String data="-1";
         try 
         {  
-                String url = settings.BLIS_URL;
                 url = url + "api/update_result.php?username="+
-                        URLEncoder.encode(settings.BLIS_USERNAME,"UTF-8") + "&password="+
-                        URLEncoder.encode(settings.BLIS_PASSWORD,"UTF-8");           
+                        URLEncoder.encode(user,"UTF-8") + "&password="+
+                        URLEncoder.encode(pass,"UTF-8");           
                 url = url + "&specimen_id="+URLEncoder.encode(specimenID,"UTF-8");
                 url = url + "&measure_id="+measureID;
                 url = url + "&result="+result;  
@@ -181,6 +185,7 @@ public class blis {
                          
                       }
                       data = response.toString();
+                      log.AddToDisplay.Display("Connected to elims: save Result2 method",DisplayMessageType.INFORMATION);
                                            
                   } catch(Exception e){ log.logger.Logger(e.getMessage());}
         } catch (MalformedURLException ex) {
@@ -203,10 +208,10 @@ public class blis {
         String data="-1";
         try 
         {  
-                String url = settings.BLIS_URL;
+ 
                 url = url + "api/update_result.php?username="+
-                        settings.BLIS_USERNAME + "&password="+
-                        settings.BLIS_PASSWORD;           
+                        user + "&password="+
+                        pass;           
                 url = url + "&specimen_id="+specimenID;
                 url = url + "&measure_id="+measureID;
                 url = url + "&result="+result;               
@@ -225,6 +230,7 @@ public class blis {
                          
                       }
                       data = response.toString();
+                      log.AddToDisplay.Display("Connected to elims: save Result3",DisplayMessageType.INFORMATION);
                                            
                   } catch(Exception e){ log.logger.Logger(e.getMessage());}
         } catch (MalformedURLException ex) {

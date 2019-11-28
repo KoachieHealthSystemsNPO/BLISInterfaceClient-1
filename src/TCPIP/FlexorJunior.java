@@ -265,12 +265,14 @@ public class FlexorJunior extends Thread{
             {
                 if(OutQueue.peek().charAt(0) != value)
                 OutQueue.add(String.valueOf(value));
+                
             }
             else
             {
                 OutQueue.add(String.valueOf(value));
             }
-            //log.logger.Logger("New message added to sending queue\n"+value);                                                          
+            log.logger.Logger("New message added to sending queue "+value+" \n");
+            log.logger.Logger("Message of "+value+ " "+String.valueOf(value));
        }
        
    }
@@ -362,11 +364,13 @@ public class FlexorJunior extends Thread{
       
       private static void process()
       {        
+          log.AddToDisplay.Display("Process method has been called",DisplayMessageType.INFORMATION);
           int[] resultslocs = {3,3};
            try
            {
            if(!ASTMMsgs.isEmpty())
                {
+                   log.AddToDisplay.Display("ASTMMsgs: "+ASTMMsgs,DisplayMessageType.INFORMATION);
                    //String.valueOf(STX)+"[\\d]
                    ASTMMsgs = ASTMMsgs.replaceAll(String.valueOf(STX)+"[\\d]", "");
                    ASTMMsgs = ASTMMsgs.replaceAll(String.valueOf(ETB)+String.valueOf(CR), "");
@@ -441,7 +445,7 @@ public class FlexorJunior extends Thread{
                                         }
                                         else
                                         {
-                                             log.AddToDisplay.Display("\nTest with Code: "+SampleID +" not Found on BLIS",DisplayMessageType.WARNING);
+                                             log.AddToDisplay.Display("\nTest with Code (PID): "+msgParts[2]+" not Found on BLIS",DisplayMessageType.WARNING);
                                         }
                                  }
                                 else
@@ -463,13 +467,16 @@ public class FlexorJunior extends Thread{
                             log.AddToDisplay.Display("Message format not known: Skipped",DisplayMessageType.INFORMATION);
                         }                        
                     }
-               }
+               }else{
+                log.AddToDisplay.Display("ASMs is empty ",DisplayMessageType.INFORMATION);
+           }
            }catch(Exception ex){ log.AddToDisplay.Display(ex.getMessage(),DisplayMessageType.ERROR); }
            ASTMMsgs="";
           
       }
     public static void handleMessage(String message)
     {         
+        //log.AddToDisplay.Display("Message received is: "+message, DisplayMessageType.INFORMATION);
          synchronized(MainForm.set)
           {
              MainForm.set = MainForm.RESET.WAIT;
@@ -479,34 +486,42 @@ public class FlexorJunior extends Thread{
             //String[] msgParts = message.split("\r");
             MSGTYPE type =getMessageType(message);           
             if(type == MSGTYPE.ENQ)
-            {                
-                AddtoQueue(ACK);
+            {          
+                log.AddToDisplay.Display("Message type is ENQ", DisplayMessageType.INFORMATION);
+                AddtoQueue(ACK); 
                //ASTMMsgs="";
                appMode = MODE.RECEIVEING_RESULTS;
             }
             else if(type == MSGTYPE.STX)
             {
+                log.AddToDisplay.Display("Message type is STX", DisplayMessageType.INFORMATION);
                 AddtoQueue(ACK);
                ASTMMsgs = ASTMMsgs + "\r"+message;
                appMode = MODE.RECEIVEING_RESULTS;
                if(ASTMMsgs.endsWith(String.valueOf(EOT)))
                {
+                   log.AddToDisplay.Display("Message ends with EOT", DisplayMessageType.INFORMATION);
                    process();
+               }else{
+                   log.AddToDisplay.Display("Message does not end with EOT", DisplayMessageType.INFORMATION);
                }
                 
             }
             else if (type == MSGTYPE.EOT)
-            {                
+            {       
+                log.AddToDisplay.Display("Message type is EOT", DisplayMessageType.INFORMATION);
                 //todo handle results 
                process();
                 
             }
             else if (type == MSGTYPE.NAK)
             {
+                log.AddToDisplay.Display("Message type is NAK", DisplayMessageType.INFORMATION);
                  log.AddToDisplay.Display("NAK Response from Analyzer",DisplayMessageType.ERROR);
             }
             else if(type == MSGTYPE.ACK)
             {
+                log.AddToDisplay.Display("Message type is ACK", DisplayMessageType.INFORMATION);
                 if(appMode == MODE.SENDING_QUERY)
                 {
                     if(PatientTest.size()>0)
@@ -532,7 +547,14 @@ public class FlexorJunior extends Thread{
                 
                
                
-            }          
+            }else{
+                //AddtoQueue(ACK);
+                ASTMMsgs = ASTMMsgs + "\r"+message;
+                appMode = MODE.RECEIVEING_RESULTS;
+                process();
+                log.AddToDisplay.Display("Default case. Force running process method",DisplayMessageType.INFORMATION);
+            }
+            
             
         }catch(Exception ex)
         {
@@ -606,7 +628,7 @@ public class FlexorJunior extends Thread{
     private static String getSpecimenFilter(int whichdata)
     {
         String data = "";
-        xmlparser p = new xmlparser("configs/flexorjunior/flexorjunior.xml");
+        xmlparser p = new xmlparser("configs/flexorjunior/SYSMEXXN350.xml");
         try {
             data = p.getMicros60Filter(whichdata);           
         } catch (Exception ex) {           
